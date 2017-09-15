@@ -1,11 +1,11 @@
-package fussballmanager;
+package fuﬂballmanager;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import java.text.NumberFormat;
 
-import fussballmanager.personen.*;
+import fuﬂballmanager.personen.*;
 
 public class Spiel {
 	int spielzeit;

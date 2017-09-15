@@ -1,4 +1,4 @@
-package fussballmanager.personen;
+package fußballmanager.personen;
 
 public class Trainer extends Person{
 	int inspiration;
