@@ -7,6 +7,7 @@ public class Spieler extends Person {
 	int verteidigung;
 	int tore;
 	int motivation;
+	double geschwindigkeit;
 
 	public Spieler(int stärke, int verteidigung, int alter, String vorname,
 			String name) {
@@ -16,11 +17,12 @@ public class Spieler extends Person {
 		this.vorname = vorname;
 		this.name = name;
 	}
-
+	
 	public Spieler() {
-		this.stärke = new Random().nextInt(100);
-		this.verteidigung = new Random().nextInt(100);
-		this.alter = new Random().nextInt(100);
+		int random = new Random().nextInt(100);
+		this.verteidigung = random;
+		this.stärke = 100-random;
+		this.geschwindigkeit = 4+Math.random()*2;
 		this.vorname = "Hans";
 		this.name = "Wurst";
 	}
