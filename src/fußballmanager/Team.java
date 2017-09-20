@@ -9,16 +9,11 @@ public class Team {
 	Torwart torwart;
 	int siege;
 	
-
-	public Team(){
-		
-
 	public boolean isInTeam(Person p){
 		for(Person pp:spieler){
 			if(p.equals(pp)) return true;
 		}
 		if(torwart.equals(p)) return true;
 		return false;
-
 	}
 }
