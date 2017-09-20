@@ -14,4 +14,8 @@ public abstract class Person {
 	public Team getTeam(){
 		return team;
 	}
+	
+	public boolean isInTeam(Person p){
+		return team.isInTeam(p);
+	}
 }

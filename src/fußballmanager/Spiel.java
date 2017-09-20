@@ -32,7 +32,13 @@ public class Spiel {
 	}
 	
 	private void movePhase(){
-		
+		Team ballteam;
+		Team nichtballteam;
+		if(ballBesitz){
+			ballteam = heimteam;
+		}else{
+			ballteam = auswärtsteam;
+		}
 	}
 	
 	private void attackPhase(){
