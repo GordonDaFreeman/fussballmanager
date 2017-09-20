@@ -12,8 +12,6 @@ public abstract class Person {
 		this.team = team;
 	}
 	
-
-	
 	public Team getTeam(){
 		return team;
 	}

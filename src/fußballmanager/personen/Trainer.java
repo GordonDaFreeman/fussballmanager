@@ -1,19 +1,14 @@
 package fuﬂballmanager.personen;
 
+import fuﬂballmanager.namegen.Datenbank;
+
 public class Trainer extends Person{
 	int inspiration;
 	int erfahrung = 0;
 	
-	public Trainer(String name, String vorname, int inspiration, int erfahrung){
-		this.name = name;
-		this.vorname = vorname;
-		this.inspiration = inspiration;
-		this.erfahrung = erfahrung;
-	}
-	
 	public Trainer(){
-		this.name ="Mustertrainer";
-		this.vorname = "Max";
+		this.name = Datenbank.genName();
+		this.vorname = Datenbank.genVorname();
 		this.inspiration = (int) (Math.random()*100);
 	}
 	

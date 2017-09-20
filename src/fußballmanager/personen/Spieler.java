@@ -37,7 +37,7 @@ public class Spieler extends Person {
 		this.verteidigung = random;
 		this.stärke = 100-random;
 		this.geschwindigkeit = 4+Math.random()*2;
-		this.vorname = "Hans";
-		this.name = "Wurst";
+		this.vorname = Datenbank.genVorname();
+		this.name = Datenbank.genName();
 	}
 }
