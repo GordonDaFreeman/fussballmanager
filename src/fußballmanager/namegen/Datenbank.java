@@ -1,5 +1,6 @@
 package fußballmanager.namegen;
 
+import java.util.ArrayList;
 
 public class Datenbank {
 	int n = 100;
@@ -7,6 +8,7 @@ public class Datenbank {
 	static int counterVorname = 0;
 	static int counterBeiname = 0;
 	static String[] nameFeld;
+	static ArrayList<String> namen = new ArrayList<String>();//
 	static String[] vornameFeld;
 	static String[] beinameFeld;
 	
@@ -25,6 +27,8 @@ public class Datenbank {
 	}
 
 	static void nameFeldFüllen(){
+		namen.add("Günter");//
+		namen.get(0);//
 		nameFeld[counterName] = "Guenther";
 		counterName++;
 		nameFeld[counterName] = "Schmidt";
