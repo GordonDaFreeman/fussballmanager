@@ -1,4 +1,4 @@
-package fuﬂballmanager.nameGen;
+package fuﬂballmanager.namegen;
 public class Person {
 	
 	String name;
