@@ -28,27 +28,27 @@ public class Datenbank {
 
 	static void namenListeFüllen(){
 		namen.add("Günter");//
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
-		namen.add("Günter");
+		namen.add("Diabetes");
+		namen.add("Dextrose");
+		namen.add("Hackschnetzler");
+		namen.add("Rasur");
+		namen.add("Algrim");
+		namen.add("Schmitz");
+		namen.add("Wühl");
+		namen.add("Hommers");
+		namen.add("Dagoba");		
 	}
 
 	static void vornameFeldFüllen(){
 		vornamen.add("Günter");//
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
-		vornamen.add("Günter");
+		vornamen.add("Gorden");
+		vornamen.add("Dr.");
+		vornamen.add("Profi");
+		vornamen.add("Hommers");
+		vornamen.add("Metti");
+		vornamen.add("Moriz");
+		vornamen.add("Läon");
+		vornamen.add("Hommers");
+		vornamen.add("Willi");
 	}
 }

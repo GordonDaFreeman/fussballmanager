@@ -14,12 +14,6 @@ public class Spieler extends Person {
 	Position p;
 	Ball b;
 	
-	public static void main(String[] args){
-		Spieler p = new Spieler(1,1,1,Datenbank.genVorname(),Datenbank.genName());
-		System.out.println(p.vorname+" "+p.name);
-	}
-	
-
 	public void setBall(Ball b){
 		this.b = b;
 	}
