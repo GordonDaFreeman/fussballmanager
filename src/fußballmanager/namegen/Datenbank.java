@@ -3,12 +3,12 @@ package fuﬂballmanager.namegen;
 
 public class Datenbank {
 	int n = 100;
-	int counterName = 0;
-	int counterVorname = 0;
-	int counterBeiname = 0;
-	String[] nameFeld;
-	String[] vornameFeld;
-	String[] beinameFeld;
+	public int counterName = 0;
+	public int counterVorname = 0;
+	public int counterBeiname = 0;
+	public String[] nameFeld;
+	public String[] vornameFeld;
+	public String[] beinameFeld;
 
 	public Datenbank(){
 		nameFeld = new String[n];
