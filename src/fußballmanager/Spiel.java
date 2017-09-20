@@ -13,20 +13,33 @@ public class Spiel {
 	Team heimteam;
 	Team auswärtsteam;
 	Schiedsrichter schiri;
-	boolean werAnstoss;
+	//true = heim | false = auswärts
+	boolean ballBesitz;
 
 	public Spiel(Team heim, Team aus, Schiedsrichter s) {
 		this.heimteam = heim;
 		this.auswärtsteam = aus;
 		this.schiri = s;
-		werAnstoss = ((int) Math.random()) == 0 ? true : false;
+		ballBesitz = ((int) Math.random()) == 0 ? true : false;
 		spielzeit = 0;
 	}
 
 	public void tick() {
 		spielzeit++;
+		movePhase();
+		attackPhase();
 
 	}
+	
+	private void movePhase(){
+		
+	}
+	
+	private void attackPhase(){
+		
+	}
+	
+	
 
 	public String getSpielzeit() {
 		String r = "";

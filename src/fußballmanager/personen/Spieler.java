@@ -2,12 +2,25 @@ package fuﬂballmanager.personen;
 
 import java.util.Random;
 
+import fuﬂballmanager.Position;
+
 public class Spieler extends Person {
 	int st‰rke;
 	int verteidigung;
 	int tore;
 	int motivation;
 	double geschwindigkeit;
+	Position p;
+	Ball b;
+	
+	public void setBall(Ball b){
+		this.b = b;
+	}
+	
+	public void takeBall(Spieler s){
+		b = s.b;
+		s.b = null;
+	}
 
 	public Spieler(int st‰rke, int verteidigung, int alter, String vorname,
 			String name) {
