@@ -12,21 +12,7 @@ public abstract class Person {
 		this.team = team;
 	}
 	
-	public String genName(){
-		String r = "";
-		Datenbank data = new Datenbank();
-		data.nameFeldFüllen();
-		r += data.nameFeld[(int) (Math.random() * data.counterVorname)];
-		return r;
-	}
-	
-	public String genVorname(Datenbank d){
-		String r = "";
-		Datenbank data = new Datenbank();
-		data.nameFeldFüllen();
-		r += data.vornameFeld[(int) (Math.random() * data.counterVorname)];
-		return r;
-	}
+
 	
 	public Team getTeam(){
 		return team;

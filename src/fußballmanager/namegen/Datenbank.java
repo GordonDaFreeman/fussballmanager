@@ -3,20 +3,28 @@ package fußballmanager.namegen;
 
 public class Datenbank {
 	int n = 100;
-	public int counterName = 0;
-	public int counterVorname = 0;
-	public int counterBeiname = 0;
-	public String[] nameFeld;
-	public String[] vornameFeld;
-	public String[] beinameFeld;
-
-	public Datenbank(){
-		nameFeld = new String[n];
-		vornameFeld = new String[n];
-		beinameFeld = new String[n];
+	static int counterName = 0;
+	static int counterVorname = 0;
+	static int counterBeiname = 0;
+	static String[] nameFeld;
+	static String[] vornameFeld;
+	static String[] beinameFeld;
+	
+	public static String genName(){
+		String r = "";
+		nameFeldFüllen();
+		r += nameFeld[(int) (Math.random() * counterVorname)];
+		return r;
+	}
+	
+	public static String genVorname(){
+		String r = "";
+		nameFeldFüllen();
+		r += vornameFeld[(int) (Math.random() * counterVorname)];
+		return r;
 	}
 
-	public void nameFeldFüllen(){
+	static void nameFeldFüllen(){
 		nameFeld[counterName] = "Guenther";
 		counterName++;
 		nameFeld[counterName] = "Schmidt";
@@ -79,7 +87,7 @@ public class Datenbank {
 		
 	}
 
-	public void beinameFeldFüllen(){
+	static void beinameFeldFüllen(){
 		beinameFeld[counterBeiname] = " Junior";
 		counterBeiname++;
 		beinameFeld[counterBeiname] = " Senior";
@@ -97,7 +105,7 @@ public class Datenbank {
 		}
 	}
 	
-	public void vornameFeldFüllen(){
+	static void vornameFeldFüllen(){
 		vornameFeld[counterVorname] = "Anton";
 		counterVorname++;
 		vornameFeld[counterVorname] = "Ralph";
