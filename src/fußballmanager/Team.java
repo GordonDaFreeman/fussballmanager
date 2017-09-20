@@ -1,5 +1,6 @@
 package fußballmanager;
 
+import fußballmanager.namegen.Datenbank;
 import fußballmanager.personen.*;
 
 public class Team {
@@ -11,6 +12,12 @@ public class Team {
 	
 	public Team(String name){
 		this.name = name;
+		fülleTeam();
+		addTrainer();
+	}
+	
+	public Team(){
+		this.name = Datenbank.genName()+"'s Team";
 		fülleTeam();
 		addTrainer();
 	}
