@@ -36,8 +36,10 @@ public class Spiel {
 		Team nichtballteam;
 		if(ballBesitz){
 			ballteam = heimteam;
+			nichtballteam = auswärtsteam;
 		}else{
 			ballteam = auswärtsteam;
+			nichtballteam = heimteam;
 		}
 	}
 	
