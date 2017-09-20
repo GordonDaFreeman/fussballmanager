@@ -13,6 +13,7 @@ public class Spiel {
 	Team heimteam;
 	Team auswärtsteam;
 	Schiedsrichter schiri;
+	Ball b;
 	//true = heim | false = auswärts
 	boolean ballBesitz;
 
@@ -40,6 +41,14 @@ public class Spiel {
 		}else{
 			ballteam = auswärtsteam;
 			nichtballteam = heimteam;
+		}
+		for(Spieler s:ballteam.spieler){
+			double d = s.geschwindigkeit;
+			if(s.hasBall()) d-=1;
+			s.p.moveTo(nichtballteam.torwart.p, d);
+		}
+		for(Spieler s:nichtballteam.spieler){
+			s.p.moveTo(b.s.p, s.geschwindigkeit);
 		}
 	}
 	

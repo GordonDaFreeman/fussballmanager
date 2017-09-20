@@ -10,8 +10,8 @@ public class Spieler extends Person {
 	int verteidigung;
 	int tore;
 	int motivation;
-	double geschwindigkeit;
-	Position p;
+	public double geschwindigkeit;
+	public Position p;
 	Ball b;
 	
 	public void setBall(Ball b){
@@ -39,5 +39,10 @@ public class Spieler extends Person {
 		this.geschwindigkeit = 4+Math.random()*2;
 		this.vorname = Datenbank.genVorname();
 		this.name = Datenbank.genName();
+	}
+
+	public boolean hasBall() {
+		if(b!=null) return true;
+		return false;
 	}
 }

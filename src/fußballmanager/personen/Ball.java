@@ -1,5 +1,5 @@
 package fuﬂballmanager.personen;
 
 public class Ball{
-	Person p;
+	public Spieler s;
 }
