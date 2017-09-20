@@ -1,4 +1,4 @@
-package fußballmanager.nameGen;
+package fußballmanager.namegen;
 public class DatenKlasse {
 	final int anz = 10;
 	int counter;
