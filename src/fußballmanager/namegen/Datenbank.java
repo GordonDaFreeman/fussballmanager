@@ -19,7 +19,7 @@ public class Datenbank {
 	
 	public static String genVorname(){
 		String r = "";
-		nameFeldFüllen();
+		vornameFeldFüllen();
 		r += vornameFeld[(int) (Math.random() * counterVorname)];
 		return r;
 	}
