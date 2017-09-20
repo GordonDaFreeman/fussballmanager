@@ -16,4 +16,13 @@ public class Position {
 		b = Math.abs(y-p.y);
 		return Math.sqrt(a*a+b*b);
 	}
+	
+	public void moveTo(Position t,double d){
+		double cosT = (x - t.x)/getDistance(t);
+		double cosA = (y - t.y)/getDistance(t);
+		double ax = cosT*d;
+		double ay = cosA*d;
+		x += ax;
+		y += ay;
+	}
 }
