@@ -1,18 +1,28 @@
-package fuﬂballmanager.personen;
+package fu√üballmanager.personen;
 
 import java.util.Random;
 
-import fuﬂballmanager.Position;
-import fuﬂballmanager.namegen.Datenbank;
+import fu√üballmanager.Position;
+import fu√üballmanager.namegen.Datenbank;
 
 public class Spieler extends Person {
-	int st‰rke;
+	int st√§rke;
 	int verteidigung;
 	int tore;
-	int motivation;
+	public int motivation;
 	public double geschwindigkeit;
 	public Position p;
 	Ball b;
+	int karte = 0;
+	
+	public int getAttack() {
+		return (int) (st√§rke+(0.2*motivation));
+	}
+	
+	public int getDef() {
+		return (int) (verteidigung+(0.2*motivation));
+	}
+	
 	
 	public void setBall(Ball b){
 		this.b = b;
@@ -20,12 +30,13 @@ public class Spieler extends Person {
 	
 	public void takeBall(Spieler s){
 		b = s.b;
+		b.s = s;
 		s.b = null;
 	}
 
-	public Spieler(int st‰rke, int verteidigung, int alter, String vorname,
+	public Spieler(int st√§rke, int verteidigung, int alter, String vorname,
 			String name) {
-		this.st‰rke = st‰rke;
+		this.st√§rke = st√§rke;
 		this.verteidigung = verteidigung;
 		this.alter = alter;
 		this.vorname = vorname;
@@ -35,7 +46,7 @@ public class Spieler extends Person {
 	public Spieler() {
 		int random = new Random().nextInt(100);
 		this.verteidigung = random;
-		this.st‰rke = 100-random;
+		this.st√§rke = 100-random;
 		this.geschwindigkeit = 4+Math.random()*2;
 		this.vorname = Datenbank.genVorname();
 		this.name = Datenbank.genName();
