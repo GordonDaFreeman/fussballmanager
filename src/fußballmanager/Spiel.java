@@ -23,6 +23,14 @@ public class Spiel {
 		this.schiri = s;
 		ballBesitz = ((int) Math.random()) == 0 ? true : false;
 		spielzeit = 0;
+		heimteam.setPositions(true);
+		auswärtsteam.setPositions(false);
+		b = new Ball();
+		if(ballBesitz){
+			b.s = heimteam.spieler[9];
+		}else{
+			b.s = auswärtsteam.spieler[9];
+		}	
 	}
 
 	public void tick() {
