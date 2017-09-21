@@ -1,25 +1,25 @@
-package fuﬂballmanager;
+package fu√üballmanager;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import java.text.NumberFormat;
 
-import fuﬂballmanager.personen.*;
+import fu√üballmanager.personen.*;
 
 public class Spiel {
 	int spielzeit;
-	int verl‰ngerung;
+	int verl√§ngerung;
 	Team heimteam;
-	Team ausw‰rtsteam;
+	Team ausw√§rtsteam;
 	Schiedsrichter schiri;
 	Ball b;
-	//true = heim | false = ausw‰rts
+	//true = heim | false = ausw√§rts
 	boolean ballBesitz;
 
 	public Spiel(Team heim, Team aus, Schiedsrichter s) {
 		this.heimteam = heim;
-		this.ausw‰rtsteam = aus;
+		this.ausw√§rtsteam = aus;
 		this.schiri = s;
 		ballBesitz = ((int) Math.random()) == 0 ? true : false;
 		spielzeit = 0;
@@ -37,9 +37,9 @@ public class Spiel {
 		Team nichtballteam;
 		if(ballBesitz){
 			ballteam = heimteam;
-			nichtballteam = ausw‰rtsteam;
+			nichtballteam = ausw√§rtsteam;
 		}else{
-			ballteam = ausw‰rtsteam;
+			ballteam = ausw√§rtsteam;
 			nichtballteam = heimteam;
 		}
 		for(Spieler s:ballteam.spieler){
@@ -52,8 +52,118 @@ public class Spiel {
 		}
 	}
 	
-	private void attackPhase(){
-		
+	private void attackPhase() {
+		Team ballteam;
+		Team nichtballteam;
+		if (ballBesitz) {
+			ballteam = heimteam;
+			nichtballteam = ausw√§rtsteam;
+		} else {
+			ballteam = ausw√§rtsteam;
+			nichtballteam = heimteam;
+		}
+		for (Spieler s : ballteam.spieler) {
+			if (s.hasBall()) {
+				boolean weiter = true;
+				for (Spieler g : nichtballteam.spieler) {
+					if (weiter)
+						if (s.p.getDistance(g.p) < 0.5) {
+							if (g.getAttack() > s.getDef()) {
+								int rng = new Random().nextInt(100);
+								if (rng < 89) {
+									// Ball wurde abgenommen
+									g.takeBall(s);
+									s.motivation -= 20;
+								}
+								if (rng < 90) {
+
+								}
+								if (rng < 101) {
+									Spieler t = null;
+									double d = 200;
+									for (Spieler temp : ballteam.spieler) {
+										if (s.p.getDistance(temp.p) < d && !temp.equals(s)) {
+											d = s.p.getDistance(temp.p);
+											t = temp;
+										}
+									}
+									Flugbahn fb = new Flugbahn(s.p, t.p);
+									boolean succes = false;
+									for (Spieler temp : nichtballteam.spieler) {
+										if (fb.isInRange(temp.p)) {
+											// Pass wurde unterbrochen
+											temp.takeBall(s);
+											succes = true;
+											break;
+										}
+									}
+									if (!succes) {
+										// Ball wurde weg gepasst
+										t.takeBall(s);
+									}
+								}
+							} else {
+								Spieler t = null;
+								double d = 200;
+								for (Spieler temp : ballteam.spieler) {
+									if (s.p.getDistance(temp.p) < d && !temp.equals(s)) {
+										d = s.p.getDistance(temp.p);
+										t = temp;
+									}
+								}
+								Flugbahn fb = new Flugbahn(s.p, t.p);
+								boolean succes = false;
+								for (Spieler temp : nichtballteam.spieler) {
+									if (fb.isInRange(temp.p)) {
+										// Pass wurde unterbrochen
+										temp.takeBall(s);
+										succes = true;
+										break;
+									}
+								}
+								if (!succes) {
+									// Ball wurde weg gepasst
+									t.takeBall(s);
+								}
+							}
+							//
+							weiter = false;
+						}
+				}
+				if (weiter) {
+					double tordis = s.p.getDistance(nichtballteam.torwart.p);
+					Spieler t = null;
+					boolean ss = false;
+					for (Spieler m : ballteam.spieler) {
+
+						if (!m.equals(s)) {
+							if (m.p.getDistance(nichtballteam.torwart.p) < tordis) {
+								t = m;
+								ss = true;
+							}
+						}
+					}
+
+					if (t != null&&ss) {
+						Flugbahn fb = new Flugbahn(s.p, t.p);
+						boolean succes = false;
+						for (Spieler temp : nichtballteam.spieler) {
+							if (fb.isInRange(temp.p)) {
+								// Pass wurde unterbrochen
+								temp.takeBall(s);
+								succes = true;
+								break;
+							}
+						}
+						if (!succes) {
+							// Ball wurde weg gepasst
+							t.takeBall(s);
+						}
+					}
+				}
+				break;
+			}
+		}
 	}
 	
 	
