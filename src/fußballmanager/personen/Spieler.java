@@ -50,6 +50,7 @@ public class Spieler extends Person {
 		this.geschwindigkeit = 4+Math.random()*2;
 		this.vorname = Datenbank.genVorname();
 		this.name = Datenbank.genName();
+		p = new Position(0,0);
 	}
 
 	public boolean hasBall() {
