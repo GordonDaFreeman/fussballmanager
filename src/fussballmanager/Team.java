@@ -53,7 +53,7 @@ public class Team {
 				spieler[i].p.y =11.25+22.5*(i-7);
 			}
 			spieler[9].p.x=44;
-			spieler[9].p.y=45;
+			spieler[9].p.y=22.5;
 		}else{
 			torwart.p.x = 90-5;
 			torwart.p.y = 22.5;
@@ -70,7 +70,7 @@ public class Team {
 				spieler[i].p.y =11.25+22.5*(i-7);
 			}
 			spieler[9].p.x=46;
-			spieler[9].p.y=45;
+			spieler[9].p.y=22.5;
 		}
 			
 	}
