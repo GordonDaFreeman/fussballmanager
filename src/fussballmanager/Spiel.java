@@ -58,12 +58,10 @@ public class Spiel {
 			if (s.hasBall())
 				d -= 1;
 			s.p.moveTo(nichtballteam.torwart.p, d);
-			System.out.println(s.getname() + " l�uft!");
 		}
 		for (Spieler s : nichtballteam.spieler) {
 			String a = s.p.toString();
 			s.p.moveTo(b.s.p, s.geschwindigkeit);
-			System.out.println(s.getname() + " l�uft! von " + a + " zu " + s.p.toString());
 		}
 	}
 
@@ -87,7 +85,7 @@ public class Spiel {
 								int rng = new Random().nextInt(100);
 								if (rng < 89) {
 									// Ball wurde abgenommen
-									System.out.println(s.getname() + " gab Ball an " + g.getname());
+									Main.tf.addText(s.getname() + " gab Ball an " + g.getname());
 									g.takeBall(s);
 									s.motivation -= 20;
 									ballWechsel();
@@ -174,7 +172,7 @@ public class Spiel {
 							}
 						}
 						if (!succes) {
-							System.out.println(s.getname() + " passt Ball an " + t.getname());
+							Main.tf.addText(s.getname() + " passt Ball an " + t.getname());
 							// Ball wurde weg gepasst
 							t.takeBall(s);
 						}
@@ -201,14 +199,14 @@ public class Spiel {
 	public void tor() {
 		if (ballBesitz) {
 			heimteam.tore++;
-			System.out.println("Heimteam punktet!");
+			Main.tf.addText("Heimteam punktet!");
 			ballWechsel();
 			auswärtsteam.spieler[9].takeBall(b.s);
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
 		} else {
 			auswärtsteam.tore++;
-			System.out.println("Auswärtsteam punktet!");
+			Main.tf.addText("Auswärtsteam punktet!");
 			ballWechsel();
 			heimteam.spieler[9].takeBall(b.s);
 			heimteam.setPositions(true);

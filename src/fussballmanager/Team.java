@@ -4,12 +4,12 @@ import fussballmanager.namegen.Datenbank;
 import fussballmanager.personen.*;
 
 public class Team {
-	String name;
+	public String name;
 	Trainer trainer;
 	public Spieler[] spieler = new Spieler[10];
 	Torwart torwart;
 	int siege = 0;
-	int tore;
+	public int tore;
 	
 	public Team(String name){
 		this.name = name;
