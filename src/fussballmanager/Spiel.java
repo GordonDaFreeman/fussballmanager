@@ -15,7 +15,7 @@ public class Spiel {
 	public Team auswärtsteam;
 	Schiedsrichter schiri;
 	public Ball b;
-	//true = heim | false = auswärts
+	// true = heim | false = auswärts
 	boolean ballBesitz;
 
 	public Spiel(Team heim, Team aus, Schiedsrichter s) {
@@ -27,13 +27,13 @@ public class Spiel {
 		heimteam.setPositions(true);
 		auswärtsteam.setPositions(false);
 		b = new Ball();
-		if(ballBesitz){
+		if (ballBesitz) {
 			b.s = heimteam.spieler[9];
 			heimteam.spieler[9].setBall(b);
-		}else{
+		} else {
 			b.s = auswärtsteam.spieler[9];
 			auswärtsteam.spieler[9].setBall(b);
-		}	
+		}
 	}
 
 	public void tick() {
@@ -42,30 +42,31 @@ public class Spiel {
 		attackPhase();
 		torPhase();
 	}
-	
-	private void movePhase(){
+
+	private void movePhase() {
 		Team ballteam;
 		Team nichtballteam;
-		if(ballBesitz){
+		if (ballBesitz) {
 			ballteam = heimteam;
 			nichtballteam = auswärtsteam;
-		}else{
+		} else {
 			ballteam = auswärtsteam;
 			nichtballteam = heimteam;
 		}
-		for(Spieler s:ballteam.spieler){
+		for (Spieler s : ballteam.spieler) {
 			double d = s.geschwindigkeit;
-			if(s.hasBall()) d-=1;
+			if (s.hasBall())
+				d -= 1;
 			s.p.moveTo(nichtballteam.torwart.p, d);
-			System.out.println(s.getname()+ " l�uft!");
+			System.out.println(s.getname() + " l�uft!");
 		}
-		for(Spieler s:nichtballteam.spieler){
+		for (Spieler s : nichtballteam.spieler) {
 			String a = s.p.toString();
 			s.p.moveTo(b.s.p, s.geschwindigkeit);
-			System.out.println(s.getname()+ " l�uft! von "+a+" zu "+s.p.toString());
+			System.out.println(s.getname() + " l�uft! von " + a + " zu " + s.p.toString());
 		}
 	}
-	
+
 	private void attackPhase() {
 		Team ballteam;
 		Team nichtballteam;
@@ -90,11 +91,9 @@ public class Spiel {
 									g.takeBall(s);
 									s.motivation -= 20;
 									ballWechsel();
-								}
-								if (rng < 90) {
+								} else if (rng < 90) {
 
-								}
-								if (rng < 101) {
+								} else if (rng < 101) {
 									Spieler t = null;
 									double d = 200;
 									for (Spieler temp : ballteam.spieler) {
@@ -162,7 +161,7 @@ public class Spiel {
 						}
 					}
 
-					if (t != null&&ss) {
+					if (t != null && ss) {
 						Flugbahn fb = new Flugbahn(s.p, t.p);
 						boolean succes = false;
 						for (Spieler temp : nichtballteam.spieler) {
@@ -180,34 +179,34 @@ public class Spiel {
 							t.takeBall(s);
 						}
 					}
-						
+
 				}
 				break;
 			}
 		}
 	}
-	
-	public void torPhase(){
-		if(ballBesitz){
-			if(b.s.p.getDistance(auswärtsteam.torwart.p)<5){
+
+	public void torPhase() {
+		if (ballBesitz) {
+			if (b.s.p.getDistance(auswärtsteam.torwart.p) < 5) {
 				tor();
 			}
-		}else{
-			if(b.s.p.getDistance(heimteam.torwart.p)<5){
+		} else {
+			if (b.s.p.getDistance(heimteam.torwart.p) < 5) {
 				tor();
 			}
 		}
 	}
-	
-	public void tor(){
-		if(ballBesitz){
+
+	public void tor() {
+		if (ballBesitz) {
 			heimteam.tore++;
 			System.out.println("Heimteam punktet!");
 			ballWechsel();
 			auswärtsteam.spieler[9].takeBall(b.s);
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
-		}else{
+		} else {
 			auswärtsteam.tore++;
 			System.out.println("Auswärtsteam punktet!");
 			ballWechsel();
@@ -217,8 +216,8 @@ public class Spiel {
 		}
 
 	}
-	
-	public void ballWechsel(){
+
+	public void ballWechsel() {
 		ballBesitz = !ballBesitz;
 	}
 
@@ -227,12 +226,11 @@ public class Spiel {
 		NumberFormat numberFormat = new DecimalFormat("0");
 		numberFormat.setRoundingMode(RoundingMode.DOWN);
 		r += "Spielzeit: " + numberFormat.format(this.spielzeit / 60) + ":";
-		if (spielzeit % 60 < 10){
+		if (spielzeit % 60 < 10) {
 			r += "0";
 		}
 		r += spielzeit % 60;
 		return r;
 	}
-	
-	
+
 }
