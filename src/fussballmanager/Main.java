@@ -1,5 +1,6 @@
 package fussballmanager;
 
+import fussballmanager.gui.SpielFrame;
 import fussballmanager.personen.Schiedsrichter;
 
 public class Main {
@@ -13,6 +14,8 @@ public class Main {
 		t2 = new Team();
 		schiri = new Schiedsrichter();
 		spiel = new Spiel(t1,t2,schiri);
+		SpielFrame sf = new SpielFrame(spiel);
+		sf.setVisible(true);
 		for(int i = 0; i < 5400; i++){
 			spiel.tick();
 			System.out.println(spiel.getSpielzeit());
