@@ -148,44 +148,59 @@ public class Spiel {
 				}
 				if (weiter) {
 					double tordis = s.p.getDistance(nichtballteam.torwart.p);
-					Spieler t = null;
-					boolean ss = false;
-					for (Spieler m : ballteam.spieler) {
+					if(tordis <10){
+						tor();	
+					}else{
+						tordis = s.p.getDistance(nichtballteam.torwart.p);
+						Spieler t = null;
+						boolean ss = false;
+						for (Spieler m : ballteam.spieler) {
 
-						if (!m.equals(s)) {
-							if (m.p.getDistance(nichtballteam.torwart.p) < tordis) {
-								t = m;
-								ss = true;
+							if (!m.equals(s)) {
+								if (m.p.getDistance(nichtballteam.torwart.p) < tordis) {
+									t = m;
+									ss = true;
+								}
 							}
 						}
-					}
 
-					if (t != null&&ss) {
-						Flugbahn fb = new Flugbahn(s.p, t.p);
-						boolean succes = false;
-						for (Spieler temp : nichtballteam.spieler) {
-							if (fb.isInRange(temp.p)) {
-								// Pass wurde unterbrochen
-								temp.takeBall(s);
-								succes = true;
-								ballWechsel();
-								break;
+						if (t != null&&ss) {
+							Flugbahn fb = new Flugbahn(s.p, t.p);
+							boolean succes = false;
+							for (Spieler temp : nichtballteam.spieler) {
+								if (fb.isInRange(temp.p)) {
+									// Pass wurde unterbrochen
+									temp.takeBall(s);
+									succes = true;
+									ballWechsel();
+									break;
+								}
+							}
+							if (!succes) {
+								System.out.println(s.getname() + " passt Ball an " + t.getname());
+								// Ball wurde weg gepasst
+								t.takeBall(s);
 							}
 						}
-						if (!succes) {
-							System.out.println(s.getname() + " passt Ball an " + t.getname());
-							// Ball wurde weg gepasst
-							t.takeBall(s);
-						}
-					}
+					}	
 				}
 				break;
 			}
 		}
 	}
 	
-	public boolean torMoeglich(){
-		return false;
+	public void tor(){
+		if(ballBesitz){
+			heimteam.tore++;
+			System.out.println("Heimteam punktet!");
+			heimteam.setPositions(true);
+			auswärtsteam.setPositions(false);
+		}else{
+			auswärtsteam.tore++;
+			System.out.println("Auswärtsteam punktet!");
+			heimteam.setPositions(true);
+			auswärtsteam.setPositions(false);
+		}
 	}
 	
 	public void ballWechsel(){

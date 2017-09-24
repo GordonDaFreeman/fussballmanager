@@ -9,6 +9,7 @@ public class Team {
 	public Spieler[] spieler = new Spieler[10];
 	Torwart torwart;
 	int siege = 0;
+	int tore;
 	
 	public Team(String name){
 		this.name = name;
