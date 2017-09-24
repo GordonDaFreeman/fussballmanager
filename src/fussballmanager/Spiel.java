@@ -187,13 +187,114 @@ public class Spiel {
 	}
 
 	public void torPhase() {
+		boolean abgefangen = false;
 		if (ballBesitz) {
 			if (b.s.p.getDistance(auswärtsteam.torwart.p) < 5) {
-				tor();
+				Flugbahn fb = new Flugbahn(b.s.p, auswärtsteam.torwart.p);
+				for(Spieler temp : auswärtsteam.spieler ){
+					if(fb.isInRange(temp.p)){
+						// Torschuss wurde unterbrochen
+						temp.takeBall(b.s);
+						ballWechsel();
+						abgefangen = true;
+						break;
+					}
+				}	
+				if(!abgefangen){
+					if(b.s.getAttack() < auswärtsteam.torwart.getDef()){
+						int rng = new Random().nextInt(100);
+						if(rng < 66){
+							//BALL WIRD GEHALTEN
+							auswärtsteam.torwart.takeBall(b.s);
+							double d = 200;
+							Spieler t = null;
+							for (Spieler temp : auswärtsteam.spieler) {
+								if (b.s.p.getDistance(temp.p) < d && !temp.equals(b.s)) {
+									d = b.s.p.getDistance(temp.p);
+									t = temp;
+								}
+							}
+							t.takeBall(b.s);
+							ballWechsel();
+						}else{
+							//TOR
+							tor();
+						}
+					}else{
+						int rng = new Random().nextInt(100);
+						if(rng < 33){
+							//BALL WIRD GEHALTEN
+							auswärtsteam.torwart.takeBall(b.s);
+							double d = 200;
+							Spieler t = null;
+							for (Spieler temp : auswärtsteam.spieler) {
+								if (b.s.p.getDistance(temp.p) < d && !temp.equals(b.s)) {
+									d = b.s.p.getDistance(temp.p);
+									t = temp;
+								}
+							}
+							t.takeBall(b.s);
+							ballWechsel();
+						}else{
+							//TOR
+							tor();
+						}
+					}
+				}
 			}
 		} else {
 			if (b.s.p.getDistance(heimteam.torwart.p) < 5) {
-				tor();
+				Flugbahn fb = new Flugbahn(b.s.p, heimteam.torwart.p);
+				for(Spieler temp : heimteam.spieler ){
+					if(fb.isInRange(temp.p)){
+						// Torschuss wurde unterbrochen
+						temp.takeBall(b.s);
+						ballWechsel();
+						abgefangen = true;
+						break;
+					}
+				}	
+				if(!abgefangen){
+					if(b.s.getAttack() < heimteam.torwart.getDef()){
+						int rng = new Random().nextInt(100);
+						if(rng < 66){
+							//BALL WIRD GEHALTEN
+							heimteam.torwart.takeBall(b.s);
+							double d = 200;
+							Spieler t = null;
+							for (Spieler temp : heimteam.spieler) {
+								if (b.s.p.getDistance(temp.p) < d && !temp.equals(b.s)) {
+									d = b.s.p.getDistance(temp.p);
+									t = temp;
+								}
+							}
+							t.takeBall(b.s);
+							ballWechsel();
+						}else{
+							//TOR
+							tor();
+						}
+					}else{
+						int rng = new Random().nextInt(100);
+						if(rng < 33){
+							//BALL WIRD GEHALTEN
+							heimteam.torwart.takeBall(b.s);
+							double d = 200;
+							Spieler t = null;
+							for (Spieler temp : heimteam.spieler) {
+								if (b.s.p.getDistance(temp.p) < d && !temp.equals(b.s)) {
+									d = b.s.p.getDistance(temp.p);
+									t = temp;
+								}
+							}
+							t.takeBall(b.s);
+							ballWechsel();
+						}else{
+							//TOR
+							tor();
+						}
+					}
+				}
 			}
 		}
 	}
