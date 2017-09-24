@@ -9,6 +9,8 @@ public class Flugbahn {
 	Position p1,p2;
 	
 	public Flugbahn(Position p1,Position p2) {
+		this.p1 = p1;
+		this.p2 = p2;
 		m = (p1.y-p2.y)/(p1.x-p2.x);
 		b = p1.y+m*p1.x;
 	}
@@ -18,7 +20,11 @@ public class Flugbahn {
 	}
 	
 	public boolean isInRange(Position p){
-		if(p1.x<p.x&&p2.x>p.x||p1.x>p.x&&p2.x<p.x){
+		if(p1.x<
+				p.x
+				&&p2.x>p.x
+				||p1.x>p.x
+				&&p2.x<p.x){
 			//Punkt liegt im Definitionsbereich
 			if(Math.abs(p.y-f(p.x))<0.5){
 				return true;
