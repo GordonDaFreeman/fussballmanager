@@ -36,7 +36,15 @@ public class Datenbank {
 		namen.add("Schmitz");
 		namen.add("Wühl");
 		namen.add("Hommers");
-		namen.add("Dagoba");		
+		namen.add("Dagoba");	
+		namen.add("Merkel");
+		namen.add("Smart");
+		namen.add("Smith");
+		namen.add("Wambach");
+		namen.add("Steinberg");
+		namen.add("Steinbach");
+		namen.add("H.");
+		namen.add("Özil");
 	}
 
 	static void vornameFeldFüllen(){
@@ -49,6 +57,7 @@ public class Datenbank {
 		vornamen.add("Moriz");
 		vornamen.add("Läon");
 		vornamen.add("Hommers");
+		vornamen.add("Willi");
 		vornamen.add("Willi");
 	}
 }
