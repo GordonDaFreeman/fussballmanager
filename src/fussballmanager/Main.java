@@ -21,13 +21,14 @@ public class Main {
 			System.out.println(spiel.getSpielzeit());
 			sf.refresh();
 			try {
-				Thread.sleep(200);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
+		System.out.println(spiel.heimteam.tore+":"+spiel.auswärtsteam.tore);
 	}
 	
 }
