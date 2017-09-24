@@ -29,8 +29,10 @@ public class Spiel {
 		b = new Ball();
 		if(ballBesitz){
 			b.s = heimteam.spieler[9];
+			heimteam.spieler[9].setBall(b);
 		}else{
 			b.s = auswärtsteam.spieler[9];
+			auswärtsteam.spieler[9].setBall(b);
 		}	
 	}
 
