@@ -3,6 +3,7 @@ package fussballmanager.gui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -35,7 +36,7 @@ public class SpielFrame extends JFrame {
 	public SpielFrame(Spiel sp) {
 		spiel = sp;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 655, 432);
+		setBounds(100, 100, 937, 511);
 		contentPane = new JPanel();
 		contentPane.setMinimumSize(new Dimension(size*90, size*45));
 		contentPane.setMaximumSize(new Dimension(size*90, size*45));
@@ -51,12 +52,29 @@ public class SpielFrame extends JFrame {
 		feld.setBounds(10, 10, size*90, size*45);
 		contentPane.add(feld);
 		feld.setLayout(null);
+		JLabel test = new JLabel(new ImageIcon("resources/spielerA.png"));
+		test.setBounds((int)45*size, (int)20*size, 10, 10);
+		contentPane.add(test);
 	}
 	
 	public void refresh() {
 		feld.removeAll();
 		for(Spieler s:spiel.heimteam.spieler) {
-			feld.add(new JLabelSpieler(0, s.p));
+			JLabelSpieler tmp = new JLabelSpieler(0, s.p);
+			tmp.setBounds((int)s.p.x*size, (int)s.p.y*size, 10, 10);
+			feld.add(tmp);
 		}
+		
+		for(Spieler s:spiel.auswärtsteam.spieler) {
+			JLabelSpieler tmp = new JLabelSpieler(1, s.p);
+			tmp.setBounds((int)s.p.x*size, (int)s.p.y*size, 10, 10);
+			feld.add(tmp);
+		}
+		JLabelSpieler tmp = new JLabelSpieler(2, spiel.b.s.p);
+		tmp.setBounds((int)spiel.b.s.p.x*size-5, (int)spiel.b.s.p.y*size-5, 10, 10);
+		feld.add(tmp);
+		this.invalidate();
+		this.validate();
+		this.repaint();
 	}
 }

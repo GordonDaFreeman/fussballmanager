@@ -20,12 +20,12 @@ public class Main {
 			spiel.tick();
 			System.out.println(spiel.getSpielzeit());
 			sf.refresh();
-		//	try {
-		//		Thread.sleep(200);
-		//	} catch (InterruptedException e) {
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-		//		e.printStackTrace();
-		//	}
+				e.printStackTrace();
+			}
 		}
 		
 	}

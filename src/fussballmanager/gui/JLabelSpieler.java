@@ -13,15 +13,15 @@ public class JLabelSpieler extends JLabel{
 	// 0 SpielerA
 	// 1 SpielerB
 	// 2 Ball
-	private static final ImageIcon spielerA = new ImageIcon("resources/nocoin.png");
-	private static final ImageIcon spielerB = new ImageIcon("resources/coin.png");
-	private static final ImageIcon ball = new ImageIcon("resources/nocoin.png");
+	private static final ImageIcon spielerA = new ImageIcon("resources/spielerA.png");
+	private static final ImageIcon spielerB = new ImageIcon("resources/spielerB.png");
+	private static final ImageIcon ball = new ImageIcon("resources/ball.png");
 	private static final ImageIcon[] icons = {spielerA,spielerB,ball};
 	private int id;
 	
 	public JLabelSpieler(int id,Position p) {
 		super(icons[id]);
 		this.id = id;
-		this.setBounds((int)p.x, (int)p.y, 10, 10);
+		this.setBounds((int)p.x*10, (int)p.y*10, 10, 10);
 	}
 }

@@ -23,8 +23,8 @@ public class Position {
 		double cosA = (y - t.y)/getDistance(t);
 		double ax = cosT*d;
 		double ay = cosA*d;
-		x += ax;
-		y += ay;
+		x -= ax;
+		y -= ay;
 	}
 	
 	public String toString() {
