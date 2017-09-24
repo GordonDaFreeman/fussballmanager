@@ -11,10 +11,10 @@ import fussballmanager.personen.*;
 public class Spiel {
 	int spielzeit;
 	int verlängerung;
-	Team heimteam;
-	Team auswärtsteam;
+	public Team heimteam;
+	public Team auswärtsteam;
 	Schiedsrichter schiri;
-	Ball b;
+	public Ball b;
 	//true = heim | false = auswärts
 	boolean ballBesitz;
 

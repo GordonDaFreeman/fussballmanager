@@ -19,6 +19,7 @@ public class Main {
 		for(int i = 0; i < 5400; i++){
 			spiel.tick();
 			System.out.println(spiel.getSpielzeit());
+			sf.refresh();
 		//	try {
 		//		Thread.sleep(200);
 		//	} catch (InterruptedException e) {
