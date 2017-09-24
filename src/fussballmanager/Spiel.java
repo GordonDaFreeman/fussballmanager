@@ -38,7 +38,7 @@ public class Spiel {
 		spielzeit++;
 		movePhase();
 		attackPhase();
-
+		torPhase();
 	}
 	
 	private void movePhase(){
@@ -185,6 +185,18 @@ public class Spiel {
 					}	
 				}
 				break;
+			}
+		}
+	}
+	
+	public void torPhase(){
+		if(ballBesitz){
+			if(b.s.p.getDistance(auswärtsteam.torwart.p)<20){
+				tor();
+			}
+		}else{
+			if(b.s.p.getDistance(heimteam.torwart.p)<20){
+				tor();
 			}
 		}
 	}
