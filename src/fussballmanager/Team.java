@@ -46,11 +46,11 @@ public class Team {
 			}
 			for(int i = 3; i < 7; i++){
 				spieler[i].p.x = 38;
-				spieler[i].p.y =5.625+11.25*i;
+				spieler[i].p.y =5.625+11.25*(i-3);
 			}
 			for(int i = 7; i < 9; i++){
 				spieler[i].p.x = 52;
-				spieler[i].p.y =11.25+22.5*i;
+				spieler[i].p.y =11.25+22.5*(i-7);
 			}
 			spieler[9].p.x=44;
 			spieler[9].p.y=45;
@@ -63,11 +63,11 @@ public class Team {
 			}
 			for(int i = 3; i < 7; i++){
 				spieler[i].p.x = 90-38;
-				spieler[i].p.y =5.625+11.25*i;
+				spieler[i].p.y =5.625+11.25*(i-3);
 			}
 			for(int i = 7; i < 9; i++){
 				spieler[i].p.x = 90-52;
-				spieler[i].p.y =11.25+22.5*i;
+				spieler[i].p.y =11.25+22.5*(i-7);
 			}
 			spieler[9].p.x=46;
 			spieler[9].p.y=45;
