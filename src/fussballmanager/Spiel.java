@@ -205,11 +205,13 @@ public class Spiel {
 		if(ballBesitz){
 			heimteam.tore++;
 			System.out.println("Heimteam punktet!");
+			ballWechsel();
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
 		}else{
 			auswärtsteam.tore++;
 			System.out.println("Auswärtsteam punktet!");
+			ballWechsel();
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
 		}
