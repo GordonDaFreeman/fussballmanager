@@ -6,7 +6,7 @@ import fussballmanager.Position;
 import fussballmanager.namegen.Datenbank;
 
 public class Spieler extends Person {
-	int st√§rke;
+	int st‰rke;
 	int verteidigung;
 	int tore;
 	public int motivation;
@@ -16,7 +16,7 @@ public class Spieler extends Person {
 	int karte = 0;
 	
 	public int getAttack() {
-		return (int) (st√§rke+(0.2*motivation));
+		return (int) (st‰rke+(0.2*motivation));
 	}
 	
 	public int getDef() {
@@ -34,9 +34,9 @@ public class Spieler extends Person {
 		s.b = null;
 	}
 
-	public Spieler(int st√§rke, int verteidigung, int alter, String vorname,
+	public Spieler(int st‰rke, int verteidigung, int alter, String vorname,
 			String name) {
-		this.st√§rke = st√§rke;
+		this.st‰rke = st‰rke;
 		this.verteidigung = verteidigung;
 		this.alter = alter;
 		this.vorname = vorname;
@@ -46,7 +46,7 @@ public class Spieler extends Person {
 	public Spieler() {
 		int random = new Random().nextInt(100);
 		this.verteidigung = random;
-		this.st√§rke = 100-random;
+		this.st‰rke = 100-random;
 		this.geschwindigkeit = 4+Math.random()*2;
 		this.vorname = Datenbank.genVorname();
 		this.name = Datenbank.genName();
