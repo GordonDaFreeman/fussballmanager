@@ -58,12 +58,12 @@ public class Spiel {
 			if (s.hasBall())
 				d -= 1;
 			s.p.moveTo(nichtballteam.torwart.p, d);
-			System.out.println(s.getname() + " l‰uft!");
+			//System.out.println(s.getname() + " l‰uft!");
 		}
 		for (Spieler s : nichtballteam.spieler) {
 			String a = s.p.toString();
 			s.p.moveTo(b.s.p, s.geschwindigkeit);
-			System.out.println(s.getname() + " l‰uft! von " + a + " zu " + s.p.toString());
+			//System.out.println(s.getname() + " l‰uft! von " + a + " zu " + s.p.toString());
 		}
 	}
 
@@ -194,6 +194,7 @@ public class Spiel {
 				for(Spieler temp : ausw√§rtsteam.spieler ){
 					if(fb.isInRange(temp.p)){
 						// Torschuss wurde unterbrochen
+						System.out.println(b.s.getname() + " gab Ball an " + temp.getname());
 						temp.takeBall(b.s);
 						ballWechsel();
 						abgefangen = true;
@@ -205,6 +206,7 @@ public class Spiel {
 						int rng = new Random().nextInt(100);
 						if(rng < 66){
 							//BALL WIRD GEHALTEN
+							System.out.println(b.s.getname() + "'s Schuss wird von " + ausw√§rtsteam.torwart.getname()+" gehalten!");
 							ausw√§rtsteam.torwart.takeBall(b.s);
 							double d = 200;
 							Spieler t = null;
@@ -224,6 +226,7 @@ public class Spiel {
 						int rng = new Random().nextInt(100);
 						if(rng < 33){
 							//BALL WIRD GEHALTEN
+							System.out.println(b.s.getname() + "'s Schuss wird von " + ausw√§rtsteam.torwart.getname()+" gehalten!");
 							ausw√§rtsteam.torwart.takeBall(b.s);
 							double d = 200;
 							Spieler t = null;
@@ -248,6 +251,7 @@ public class Spiel {
 				for(Spieler temp : heimteam.spieler ){
 					if(fb.isInRange(temp.p)){
 						// Torschuss wurde unterbrochen
+						System.out.println(b.s.getname() + " gab Ball an " + temp.getname());
 						temp.takeBall(b.s);
 						ballWechsel();
 						abgefangen = true;
@@ -259,6 +263,7 @@ public class Spiel {
 						int rng = new Random().nextInt(100);
 						if(rng < 66){
 							//BALL WIRD GEHALTEN
+							System.out.println(b.s.getname() + "'s Schuss wird von " + ausw√§rtsteam.torwart.getname()+" gehalten!");
 							heimteam.torwart.takeBall(b.s);
 							double d = 200;
 							Spieler t = null;
@@ -278,6 +283,7 @@ public class Spiel {
 						int rng = new Random().nextInt(100);
 						if(rng < 33){
 							//BALL WIRD GEHALTEN
+							System.out.println(b.s.getname() + "'s Schuss wird von " + ausw√§rtsteam.torwart.getname()+" gehalten!");
 							heimteam.torwart.takeBall(b.s);
 							double d = 200;
 							Spieler t = null;
@@ -301,6 +307,7 @@ public class Spiel {
 
 	public void tor() {
 		if (ballBesitz) {
+			System.out.println(b.s.getname() + " schieﬂt ein Tor");
 			heimteam.tore++;
 			System.out.println("Heimteam punktet!");
 			ballWechsel();
@@ -308,6 +315,7 @@ public class Spiel {
 			heimteam.setPositions(true);
 			ausw√§rtsteam.setPositions(false);
 		} else {
+			System.out.println(b.s.getname() + " schieﬂt ein Tor");
 			ausw√§rtsteam.tore++;
 			System.out.println("Ausw√§rtsteam punktet!");
 			ballWechsel();
