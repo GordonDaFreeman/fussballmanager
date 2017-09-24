@@ -25,6 +25,7 @@ public class SpielFrame extends JFrame {
 	private JPanel feld;
 	private Spiel spiel;
 	private static final int size = 10;
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -52,9 +53,11 @@ public class SpielFrame extends JFrame {
 		feld.setBounds(10, 10, size*90, size*45);
 		contentPane.add(feld);
 		feld.setLayout(null);
-		JLabel test = new JLabel(new ImageIcon("resources/spielerA.png"));
-		test.setBounds((int)45*size, (int)20*size, 10, 10);
-		contentPane.add(test);
+		
+		panel = new JPanel();
+		panel.setBackground(new Color(105, 105, 105));
+		panel.setBounds(0, 177, 921, 96);
+		contentPane.add(panel);
 	}
 	
 	public void refresh() {
