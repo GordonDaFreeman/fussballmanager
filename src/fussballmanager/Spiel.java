@@ -215,6 +215,11 @@ public class Spiel {
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
 		}
+		if(ballBesitz){
+			b.s = heimteam.spieler[9];
+		}else{
+			b.s = auswärtsteam.spieler[9];
+		}
 	}
 	
 	public void ballWechsel(){
