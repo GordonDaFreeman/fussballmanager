@@ -204,14 +204,14 @@ public class Spiel {
 			heimteam.tore++;
 			System.out.println("Heimteam punktet!");
 			ballWechsel();
-			auswärtsteam.spieler[9].takeBall(b.s);
+			b.s.takeBall(auswärtsteam.spieler[9]);
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
 		}else{
 			auswärtsteam.tore++;
 			System.out.println("Auswärtsteam punktet!");
 			ballWechsel();
-			heimteam.spieler[9].takeBall(b.s);
+			b.s.takeBall(heimteam.spieler[9]);
 			heimteam.setPositions(true);
 			auswärtsteam.setPositions(false);
 		}
