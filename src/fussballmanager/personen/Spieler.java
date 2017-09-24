@@ -30,7 +30,7 @@ public class Spieler extends Person {
 	
 	public void takeBall(Spieler s){
 		b = s.b;
-		b.s = s;
+		b.s = this;
 		s.b = null;
 	}
 
