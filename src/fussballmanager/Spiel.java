@@ -22,7 +22,7 @@ public class Spiel {
 		this.heimteam = heim;
 		this.auswärtsteam = aus;
 		this.schiri = s;
-		ballBesitz = ((int) Math.random()) == 0 ? true : false;
+		ballBesitz = Math.random() < 0.5 ? true : false;
 		spielzeit = 0;
 		heimteam.setPositions(true);
 		auswärtsteam.setPositions(false);
@@ -87,6 +87,7 @@ public class Spiel {
 									System.out.println(s.getname() + " gab Ball an " + g.getname());
 									g.takeBall(s);
 									s.motivation -= 20;
+									ballWechsel();
 								}
 								if (rng < 90) {
 
@@ -107,6 +108,7 @@ public class Spiel {
 											// Pass wurde unterbrochen
 											temp.takeBall(s);
 											succes = true;
+											ballWechsel();
 											break;
 										}
 									}
@@ -131,6 +133,7 @@ public class Spiel {
 										// Pass wurde unterbrochen
 										temp.takeBall(s);
 										succes = true;
+										ballWechsel();
 										break;
 									}
 								}
@@ -165,6 +168,7 @@ public class Spiel {
 								// Pass wurde unterbrochen
 								temp.takeBall(s);
 								succes = true;
+								ballWechsel();
 								break;
 							}
 						}
@@ -180,7 +184,13 @@ public class Spiel {
 		}
 	}
 	
+	public boolean torMoeglich(){
+		return false;
+	}
 	
+	public void ballWechsel(){
+		ballBesitz = !ballBesitz;
+	}
 
 	public String getSpielzeit() {
 		String r = "";

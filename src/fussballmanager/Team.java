@@ -74,6 +74,7 @@ public class Team {
 			
 	}
 	
+	
 	public boolean isInTeam(Person p){
 		for(Person pp:spieler){
 			if(p.equals(pp)) return true;
